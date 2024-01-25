@@ -32,7 +32,7 @@ def before_request():
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
         return response
     
-    if request.endpoint == 'getUser':
+    if request.endpoint == 'getUser' or request.endpoint == 'edit_profile':
         try:
             token = request.headers.get("Authorization")
             if not token:
@@ -43,7 +43,7 @@ def before_request():
             data = jwt.decode(token, 'secretKey', algorithms=['HS256'])
             session['user'] = data
         except Exception as e:
-            return jsonify({'success': False, 'message': token}), 401
+            return jsonify({'success': False, 'message': str(e)}), 401
 
     
 def user_exists(cursor, column, value):
@@ -229,8 +229,27 @@ def users():
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 401
 
-
-
+@app.route("/edit-profile", methods=['POST','OPTIONS'])
+def edit_profile():
+    try:
+        alluser = session.get("user")
+        print(alluser)
+        data = request.json
+        username = data.get('username')
+        email = data.get('email')
+        connection = DBConnection()
+        cursor = connection.cursor()
+        query = "UPDATE users SET username = %s, email = %s WHERE email = %s"
+        cursor.execute(query, (username, email, alluser.get("email")))
+        connection.commit()
+        token = jwt.encode(
+            {'email': email, 'name': username, 'password':alluser.get("password")},
+            'secretKey',
+            algorithm='HS256'
+        )
+        return jsonify({"success": True, "message": "Profile updated successfully!","token": token}), 200
+    except Exception as e:
+        return jsonify({"success": False, "message": str(e)}), 401
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

@@ -9,6 +9,9 @@ const authSlice = createSlice({
 		error: null,
 	},
 	reducers: {
+		setUser(state,action){
+			state.user = action.payload
+		},
 		logout(state) {
 			state.isAuthenticated = false
 			state.user = null

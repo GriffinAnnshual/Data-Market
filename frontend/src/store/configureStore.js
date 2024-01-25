@@ -6,7 +6,7 @@ import rootReducer from "./modules/index.js"
 const persistConfig = {
 	key: "root",
 	storage,
-	blacklist: ["navigation"],
+	whitelist: ['auth']
 }
 
 const rootPersistReducer = persistReducer(persistConfig, rootReducer)

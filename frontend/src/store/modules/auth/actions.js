@@ -2,6 +2,7 @@ import { createAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const logout = createAction("auth/logout")
+export const setUser = createAction("auth/setUser")
 export const setEmailVerified = createAction("auth/setEmailVerified")
 export const setAuthenticatedSuccess = createAction(
 	"auth/setAuthenticatedSuccess"
