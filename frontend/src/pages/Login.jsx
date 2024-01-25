@@ -16,7 +16,7 @@ const Login = () => {
 
 		await axios
 			.post(
-				"http://localhost:3000/login",
+				"http://127.0.0.1:5000/login",
 				{ email: email, password: password },
 				{
 					withCredentials: true,
@@ -84,7 +84,7 @@ const Login = () => {
 					</div>
 					<p className="text-base">
 						{"Didn't"} have account?{" "}
-						<Link to="/signup">
+						<Link to="/register">
 							<span className="text-blue-700">Signup</span>
 						</Link>
 					</p>

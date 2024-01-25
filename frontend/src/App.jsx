@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Signup from "./pages/Signup"
 import Home from './pages/Home'
 import VerifyEmail from './pages/VerifyEmail'
+import {ToastContainer} from "react-toastify"
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/verify-email" exact element={<VerifyEmail />} />
         </Routes>
       </Router>
+      <ToastContainer/>
     </>
   )
 }

@@ -8,8 +8,8 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import check from "../assets/images/check.png"
 import warning from "../assets/images/warning.png"
-import { useSelector } from "react-redux"
-
+import {useDispatch, useSelector } from "react-redux"
+import {setEmailVerified} from '../store/modules/auth/actions'
 const Signup = () => {
 	const emailVerified = useSelector((state) => state.auth.emailVerified)
 
@@ -18,6 +18,8 @@ const Signup = () => {
 		email: "",
 		password: "",
 	})
+	const dispatch = useDispatch()
+
 
 	const handleInputChange = (e) => {
 		e.preventDefault()
@@ -34,7 +36,12 @@ const Signup = () => {
 		if (storedData) {
 			setFormData(JSON.parse(storedData))
 		}
-	}, [emailVerified])
+		axios.post("http://127.0.0.1:5000/verify/email",{email:formData.email},{
+			headers: {'Content-Type': 'application/json'},
+			withCredentials: true,
+		}).then(()=> {dispatch(setEmailVerified(true))}).catch((err)=>{console.log("Email Not verified: " + err.message)})
+
+	}, [emailVerified, formData.email, dispatch])
 
 	const handleEmail = () => {
 		if (!emailVerified) {
@@ -46,7 +53,7 @@ const Signup = () => {
 
 			axios
 				.post(
-					"http://localhost:3000/send-otp",
+					"http://127.0.0.1:5000/send-otp",
 					{
 						email: formData.email,
 						name: formData.Name,
@@ -59,14 +66,14 @@ const Signup = () => {
 					}
 				)
 				.then(() => {
-					toast.info("Sending OTP...")
+					toast.info("Sending Verification Link...")
 					setInterval(async () => {
-						window.open("http://localhost:5173/email/verification", "_self")
+						window.open("http://localhost:5173/verify-email", "_self")
 					}, 1000)
 				})
 				.catch((err) => {
 					if (err.response.data.message) {
-						toast.error(err.response.data.message)
+						toast.error(err.response.data.message);
 					}
 				})
 		}
@@ -80,7 +87,7 @@ const Signup = () => {
 		}
 		await axios
 			.post(
-				"http://localhost:3000/register",
+				"http://127.0.0.1:5000/register",
 				{
 					email: formData.email,
 					password: formData.password,
