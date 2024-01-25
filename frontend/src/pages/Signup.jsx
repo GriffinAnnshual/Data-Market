@@ -100,9 +100,10 @@ const Signup = () => {
 					},
 				}
 			)
-			.then(() => {
+			.then((res) => {
 				toast.success("Account Created Successfully")
 				setInterval(() => {
+					window.localStorage.setItem("token", JSON.stringify(res.data.token))
 					localStorage.clear()
 					sessionStorage.clear()
 					window.location.href = "/"

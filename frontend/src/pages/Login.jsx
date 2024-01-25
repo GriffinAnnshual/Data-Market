@@ -14,21 +14,17 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault()
 
-		await axios
-			.post(
-				"http://127.0.0.1:5000/login",
-				{ email: email, password: password },
-				{
-					withCredentials: true,
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			)
-			.then(() => {
+		axios.post("http://127.0.0.1:5000/login", { email: email, password: password },{
+			withCredentials: true,
+			headers: {
+				"Content-Type": "application/json",
+			},
+		}).then((res) => {
 				toast.success("Login successful")
 				setInterval(() => {
-					window.location.href = "/"
+					console.log(res.data.token)
+					window.localStorage.setItem("token", JSON.stringify(res.data.token))
+					window.open("http://localhost:5173/", "_self")
 				}, 1000)
 			})
 			.catch((err) => {

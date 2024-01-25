@@ -13,17 +13,20 @@ export const setAuthenticatedFailure = createAction(
 export const getUser = () => {
 	return async (dispatch) => {
 		try {
-			const res = await axios.get("http://localhost:3000/getUser", {
-				withCredentials: true,
-				headers: {
-					"Content-Type": "application/json",
-				},
-			})
+			const res = await axios.get(
+				"http://127.0.0.1:5000/getUser",
+				{
+					withCredentials: true,
+					headers: {
+						"Authorization": "Bearer " + localStorage.getItem("token"),
+						"Content-Type": "application/json",
+					},
+				}
+			)
 
 			if (res.status === 200) {
 				const data = res.data
-				console.log(data)
-				dispatch(setAuthenticatedSuccess(data))
+				dispatch(setAuthenticatedSuccess(data.user))
 			} else {
 				console.log("Error in fetching the data")
 				dispatch(setAuthenticatedFailure("Error in fetching the data"))
