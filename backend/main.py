@@ -94,7 +94,7 @@ def login():
         return jsonify({'success': True, 'message': 'Logged in successfully'}), 200
     except Exception as e:
         return jsonify({'success': False,'message': str(e)}), 401
-    
+
 
 @app.route("/send-otp", methods=["POST"])
 def send():
@@ -157,6 +157,7 @@ def send():
 
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 401
+
 
 
 @app.route("/verify/email", methods=["GET","POST"])

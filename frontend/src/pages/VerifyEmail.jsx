@@ -40,7 +40,7 @@ const VerifyMail = () => {
 					</div>
 					<a
 						href="/register"
-						className="flex font-bold justify-start w-[30%] text-sm p-2 text-blue-700">
+						className="flex font-bold justify-start w-[30%] text-[1.0rem] p-2 pt-14 text-blue-700">
 						{"< Back to signup page"}
 					</a>
 				</div>
