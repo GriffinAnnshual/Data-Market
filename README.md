@@ -76,7 +76,22 @@ The backend server should now be running.
 
 ## Images:
 
-### 1. 
+### 1. View Profiles (Dashboard):
+![data-market](https://github.com/GriffinAnnshual/Data-Market/assets/77448860/7fa726d8-17bb-4e3d-bcdb-399f27e42a55)
+
+### 2. Login Page:
+![Capture2](https://github.com/GriffinAnnshual/Data-Market/assets/77448860/de7ef200-cd3c-41e6-a3af-25499af7814b)
+
+### 3. Register Page:
+![Capture3](https://github.com/GriffinAnnshual/Data-Market/assets/77448860/d16145cf-111e-4e56-83cf-f5b01a78b8c4)
+
+### 4. Email Verification:
+![Capture4](https://github.com/GriffinAnnshual/Data-Market/assets/77448860/086b0983-3f97-4afd-8feb-71332b50cdfb)
+
+### 5. Profile Edit:
+![Capture6](https://github.com/GriffinAnnshual/Data-Market/assets/77448860/52501368-bd17-4ec9-9486-b6a51d17e4ec)
+
+
 
 ## Acknowledgments
 
