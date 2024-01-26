@@ -1,8 +1,23 @@
-# GitHub Repository: Login-Register-UserFunctionality
+# GitHub Repository: Data Market
 
 ## Application Overview
+Data Market is a Online Protal to store User Details.
 
-This repository contains the source code for an application with separate frontend and backend components. The application is designed to [provide a brief description of the application's purpose or functionality].
+### Features:
+
+### Login Functionality:
+
+### ● User Registration and Authentication:
+  ○ Implement a user registration system with fields for username, email,
+  and password.
+  ○ Upon registration, send a confirmation email with a verification link.
+  Users should only be able to log in after email verification.
+### ● Profile Page:
+  ○ Create a user dashboard where registered users can:
+  ○ View and edit their profiles (username, email).
+  ○ View all the profiles registered.
+
+
 
 ## Getting Started
 
@@ -12,7 +27,7 @@ Follow these steps to set up and run the application locally.
 
 ```bash
 git clone https://github.com/GriffinAnnshual/Login-Register-UserFunctionality/edit/Source/README.md
-cd Login-Register-UserFunctionality
+cd Data-Market
 ```
 
 ### Frontend Setup
@@ -59,17 +74,9 @@ python main.py
 
 The backend server should now be running.
 
-## Usage
+## Images:
 
-[Provide any additional instructions or information about how to use the application, if applicable.]
-
-## Contributing
-
-[Include guidelines for contributors if you wish to accept contributions to your project.]
-
-## License
-
-[Specify the license under which the project is distributed. For example, MIT License.]
+### 1. 
 
 ## Acknowledgments
 
