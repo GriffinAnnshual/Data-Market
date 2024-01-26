@@ -26,7 +26,7 @@ Follow these steps to set up and run the application locally.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/GriffinAnnshual/Login-Register-UserFunctionality/edit/Source/README.md
+git clone https://github.com/GriffinAnnshual/Data-Market
 cd Data-Market
 ```
 
