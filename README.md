@@ -1,7 +1,7 @@
 # GitHub Repository: Data Market
 
 ## Application Overview
-Data Market is a Online Protal to store User Details.
+Data Market is a Online Protal to store User Details. Frontend: ReactJS / Backend: Flask (python)
 
 ### Features:
 
