@@ -30,6 +30,7 @@ function Home() {
 			<Header />
 			<div className="h-[80vh] w-screen flex justify-center items-center">
 				<div className="bg-slate-300 w-[96%] h-[95%] p-10">
+					<p className="text-xl font-bold mb-4">Profile Registered:</p>
 					<table
 						className="border-blue-300 border-2"
 						style={{ width: "100%" }}>
